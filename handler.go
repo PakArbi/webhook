@@ -26,7 +26,7 @@ func PostBalasan(w http.ResponseWriter, r *http.Request) {
 				location = "Unknown Location"
 			}
 
-			reply := fmt.Sprintf("Anyong Aseoo kamu pasti lagi di %s \n Koordinatenya : %s - %s\n Cara Penggunaan WhatsAuth Ada di link dibawah ini"+
+			reply := fmt.Sprintf("heyyo, ni hao, kamu pasti lagi di %s \n Koordinatenya : %s - %s\n Cara Penggunaan WhatsAuth Ada di link dibawah ini"+
 				"yaa kak %s\n", location,
 				strconv.Itoa(int(msg.Longitude)), strconv.Itoa(int(msg.Latitude)), link)
 			dt := &wa.TextMessage{
@@ -36,19 +36,19 @@ func PostBalasan(w http.ResponseWriter, r *http.Request) {
 			}
 			resp, _ = atapi.PostStructWithToken[atmessage.Response]("Token", os.Getenv("TOKEN"), dt, "https://api.wa.my.id/api/send/message/text")
 
-		} else if msg.Message == "Babi" || msg.Message == "Anjing" || msg.Message == "goblok" {
+		} else if msg.Message == "Allahuakbar" || msg.Message == "Innalillahi" || msg.Message == "Asstaghfirullah" {
 			dt := &wa.TextMessage{
 				To:       msg.Phone_number,
 				IsGroup:  false,
-				Messages: fmt.Sprintf("Ihh kakak %s kamu kasar bangett, aku jadi takut tauuu", msg.Alias_name),
+				Messages: fmt.Sprintf("Assyaghfirullah kang/eteh %s kasar bangett, aku jadi atut tauu", msg.Alias_name),
 			}
 			resp, _ = atapi.PostStructWithToken[atmessage.Response]("Token", os.Getenv("TOKEN"), dt, "https://api.wa.my.id/api/send/message/text")
 
-		} else if msg.Message == "cantik" || msg.Message == "ganteng" || msg.Message == "cakep" {
+		} else if msg.Message == "Cakep" || msg.Message == "Ganteng" || msg.Message == "Cantink" {
 			dt := &wa.TextMessage{
 				To:       msg.Phone_number,
 				IsGroup:  false,
-				Messages: fmt.Sprintf("makasiihh kakak %s kamu jugaa cakep kooo", msg.Alias_name),
+				Messages: fmt.Sprintf("Arigatouu kang/eteh %s kamu jugaa cakep kouu", msg.Alias_name),
 			}
 			resp, _ = atapi.PostStructWithToken[atmessage.Response]("Token", os.Getenv("TOKEN"), dt, "https://api.wa.my.id/api/send/message/text")
 
@@ -112,7 +112,7 @@ func Liveloc(w http.ResponseWriter, r *http.Request) {
 		location = "Unknown Location"
 	}
 
-	reply := fmt.Sprintf("Anyong Aseoo kamu pasti lagi di %s \n Koordinatenya : %s - %s\n", location,
+	reply := fmt.Sprintf("heyyo, ni hao, kamu pasti lagi di %s \n Koordinatenya : %s - %s\n", location,
 		strconv.Itoa(int(msg.Longitude)), strconv.Itoa(int(msg.Latitude)))
 
 	if r.Header.Get("Secret") == os.Getenv("SECRET") {
